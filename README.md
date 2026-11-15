@@ -36,23 +36,28 @@ Your task is to containerize this existing application using Docker. You need to
 3. Run a container from your image
 4. Verify the application works by accessing it in your browser
 
+
 ## Starting the Application
 
-- To build the docker image run the command:
+- To build the Docker image, run the command:
 
 ```bash
-
+docker build -t assignment4-app .
 ```
 
-- To run your docker container in port 3000 run the command:
+- To run your Docker container on port 3000, run the command:
 
 ```bash
-
+docker run -d -p 3000:3000 --name assignment4-container assignment4-app
 ```
+
 
 ## Reflection Question
 **Answer the following question in the space below**: How does containerization with Docker differ from using virtual machines, and why might a development team choose Docker containers over VMs for deploying applications like the one you just containerized?
 
+Docker containers and virtual machines both allow applications to run in separate environments, but they work differently. A virtual machine includes an entire operating system along with the application and its dependencies. Docker containers share the host operating system's kernel while keeping the application and its required dependencies isolated.
+
+I think development teams might choose Docker because containers are generally more lightweight and faster to start than virtual machines. They also make it easier to move applications between different environments without having to install and configure every dependency separately. For example, with this assignment, I was able to run the Node.js application through Docker without needing to install Node.js directly on my computer. This makes development and deployment more consistent across a team. Virtual machines still have advantages when a project requires a completely separate operating system, but Docker is often a more efficient choice for deploying individual applications.
 
 
 ## Application Requirements for Docker
@@ -92,3 +97,14 @@ docker-assignment/
 ```
 
 Good luck with your Docker containerization!
+
+
+## Application Screenshots
+
+### Application Running at localhost:3000
+
+![Application Screenshot](./images/app-screenshot.png)
+
+### API Response at localhost:3000/api/status
+
+![API Status Screenshot](./images/api-screenshot.png)
